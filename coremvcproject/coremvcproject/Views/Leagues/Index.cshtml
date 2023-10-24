@@ -1,0 +1,58 @@
+﻿@model IEnumerable<coremvcproject.Model.Leagues>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaguesId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeagueName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeagueCountry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MostChampTeam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumbofTeams)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaguesId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeagueName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeagueCountry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MostChampTeam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumbofTeams)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.LeaguesId },new{@class="btn btn-primary"}) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.LeaguesId },new{@class="btn btn-danger"})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

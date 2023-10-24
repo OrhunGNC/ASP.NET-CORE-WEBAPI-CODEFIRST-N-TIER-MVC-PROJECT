@@ -1,0 +1,58 @@
+﻿@model IEnumerable<coremvcproject.Model.Teams>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamCountry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaguesId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamCountry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaguesId)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.TeamId },new{@class="btn btn-primary"}) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.TeamId},new{@class="btn btn-danger"})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
